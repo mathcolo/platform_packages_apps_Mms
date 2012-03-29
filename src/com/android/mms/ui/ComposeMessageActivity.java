@@ -2199,14 +2199,12 @@ public class ComposeMessageActivity extends Activity
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_CENTER:
-            //The return key needs to not send the message.
-            /*case KeyEvent.KEYCODE_ENTER:
+            case KeyEvent.KEYCODE_ENTER:
                 if (isPreparedForSending()) {
                     confirmSendMessageIfNeeded();
                     return true;
                 }
                 break;
-            */
             case KeyEvent.KEYCODE_BACK:
                 exitComposeMessageActivity(new Runnable() {
                     public void run() {
