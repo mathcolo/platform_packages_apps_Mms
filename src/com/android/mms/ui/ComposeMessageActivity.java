@@ -2200,13 +2200,17 @@ public class ComposeMessageActivity extends Activity
                 break;
             case KeyEvent.KEYCODE_DPAD_CENTER:
             //The return key needs to not send the message.
-            /*case KeyEvent.KEYCODE_ENTER:
-                if (isPreparedForSending()) {
-                    confirmSendMessageIfNeeded();
+            case KeyEvent.KEYCODE_ENTER:
+                //Add a line break
+                	int cursorPosition = mTextEditor.getSelectionStart();
+					CharSequence enteredText = mTextEditor.getText().toString();
+					CharSequence startToCursor = enteredText.subSequence(0, cursorPosition);
+					CharSequence cursorToEnd = enteredText.subSequence(cursorPosition, enteredText.length());
+					CharSequence finalSeq = startToCursor + "\n" + cursorToEnd;
+					mTextEditor.setText(finalSeq);
+					
                     return true;
-                }
                 break;
-            */
             case KeyEvent.KEYCODE_BACK:
                 exitComposeMessageActivity(new Runnable() {
                     public void run() {
